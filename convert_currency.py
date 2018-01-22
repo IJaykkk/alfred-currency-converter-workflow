@@ -1,10 +1,74 @@
 import sys
 import json
+import re
+from datetime import datetime, timedelta
 from workflow import Workflow, web
 
 def main(wf):
+    args = wf.args
+
+    # defaults about cur_types, rate, timestamp
+    set_defaults()
+
+    # renew currency exchange rate
+    renew_rate()
+
+    try:
+        base = args[0].upper()
+    except:
+        return wait(m="ce '{currency}' '{amount}'")
+    try:
+        if base in wf.settings['defaults']['rate']:
+            amount = float(args[1])
+        else:
+            return wait(m="Please enter valid currency like 'usd'")
+    except:
+        return wait(m='Please enter the amount')
+
+    cur_types, rate = wf.settings['defaults']['cur_types'], wf.settings['defaults']['rate']
+
+    # produce results
+    for cur in cur_types:
+        if base == cur and len(cur_types) > 1: continue
+
+        total = amount * rate[cur] / rate[base]
+
+        amount = '{0}'.format(amount).rstrip('0').rstrip('.')
+        total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
+        title = '{0} {1} = {2} {3}'.format(amount, base, total, cur)
+
+        wf.add_item(title=title)
+
+    wf.send_feedback()
+
+def set_defaults():
+    if not 'defaults' in wf.settings:
+        wf.settings['defaults'] = {
+                'cur_types': ['TWD'],
+                'rate': get_rate(),
+                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            }
+    return
+
+def renew_rate():
+    present = datetime.now()
+    last_renew_time = datetime.strptime(wf.settings['defaults']['timestamp'], '%Y-%m-%d %H:%M:%S')
+
+    if present - last_renew_time >= timedelta(days=1):
+        wf.settings['defaults']['rate'] = get_rate()
+        wf.settings['defaults']['timestamp'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        wf.settings.save()
+
+    return
+
+def wait(m):
+    wf.add_item(title=m)
+    wf.send_feedback()
+
+def get_rate():
     # set api
-    api_url = "https://tw.rter.info/capi.php"
+    api_url = 'https://tw.rter.info/capi.php'
 
     # retrieve live currency rate from api
     r = web.get(url=api_url)
@@ -12,26 +76,11 @@ def main(wf):
     resp = r.text
     data = json.loads(resp)
 
-    arg = wf.args[0]
-    n = to_number(wf.args[0])
+    # clear up data
+    rate = {k: v['Exrate'] for k, v in data.items()}
+    rate = {re.sub('^USD', '', k): v for k, v in rate.items() if k != "USD"}
 
-    if isinstance(n, int) or isinstance(n, float):
-        total = n * data['USDTWD']['Exrate']
-        wf.add_item(title=str(total))
-        wf.send_feedback()
-    else:
-        wf.add_item('Please enter a valid format')
-        wf.send_feedback()
-
-def to_number(s):
-    try:
-        return int(s)
-    except ValueError:
-        return float(s)
-
-if __name__ == '__main__':
-    wf = Workflow()
-    sys.exit(wf.run(main))
+    return rate
 
 if __name__ == '__main__':
     wf = Workflow()

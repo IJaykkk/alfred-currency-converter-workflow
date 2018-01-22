@@ -35,20 +35,19 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>usd</string>
+				<string>ce</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<true/>
 				<key>queuedelaymode</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>/usr/bin/python convert_currency.py $@
-</string>
+				<string>/usr/bin/python convert_currency.py $@</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -56,7 +55,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Convert currencies</string>
+				<string>Currency exchange</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -66,54 +65,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>14EA696E-9FE5-450D-B41E-8A659DAC826E</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>jpy</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>/usr/bin/python convert_currency.py $@
-</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>Convert currencies</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>7BE89D0D-51F0-4EA4-9C44-31A3DBA751CA</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -132,13 +83,6 @@ A new option now exists for Script Filters, "Alfred filters results". This allow
 			<integer>180</integer>
 			<key>ypos</key>
 			<integer>190</integer>
-		</dict>
-		<key>7BE89D0D-51F0-4EA4-9C44-31A3DBA751CA</key>
-		<dict>
-			<key>xpos</key>
-			<integer>170</integer>
-			<key>ypos</key>
-			<integer>350</integer>
 		</dict>
 	</dict>
 	<key>version</key>
