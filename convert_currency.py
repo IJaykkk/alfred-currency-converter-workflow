@@ -37,7 +37,10 @@ def main(wf):
         total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
         title = '{0} {1} = {2} {3}'.format(amount, base, total, cur)
 
-        wf.add_item(title=title)
+        wf.add_item(title=title,
+                valid=True,
+                subtitle='Press enter to copy to clipboard',
+                copytext=total, arg=total)
 
     wf.send_feedback()
 
