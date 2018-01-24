@@ -16,7 +16,8 @@ def main(wf):
     try:
         base = args[0].upper()
     except:
-        return wait(m="ce '{currency}' '{amount}'")
+        return wait(m="cur [currency type] [amount]")
+
     try:
         if base in wf.settings['defaults']['rate']:
             amount = float(args[1])
