@@ -1,13 +1,16 @@
 # Currency exchange workflow for [Alfred 3](https://www.alfredapp.com)
-This workflow allows you easy to convert currency with live currency rate. They keyword is "ce", which is the acronym for "Currency Exchange". An example of use: ```ce usd 100```
-
-
-![inline](./assets/example.gif)
+This workflow allows you easy to convert currency with live currency rate. They keyword is "cur", which is the abbreviation for "Currency". An example of use: ```cur usd 100```
 
 ## Commands
 
-- ```ce [currency type] [amount]```
-Change the original currency type into others
+- ```cur [currency type] [amount]```
 
-- ```ce targets += [curreny type]``` **WIP**
-Manage your list of currency types, which will show up in the result.
+Change the original currency type into other curreny types.
+
+-![inline](./assets/example.gif)
+
+- ```cur to [curreny type]```
+
+Add a currency type into the list of currency exchange, which will show up in the result. If the number of items in the result exceed 6, the oldest currency type will pop out.
+
+-![inline](./assets/example2.gif)
