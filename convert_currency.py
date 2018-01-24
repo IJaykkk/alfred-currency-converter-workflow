@@ -28,12 +28,12 @@ def main(wf):
     cur_types, rate = wf.settings['defaults']['cur_types'], wf.settings['defaults']['rate']
 
     # produce results
+    amount = '{0}'.format(amount).rstrip('0').rstrip('.')
+
     for cur in cur_types:
         if base == cur and len(cur_types) > 1: continue
 
         total = float(amount) * rate[cur] / rate[base]
-
-        amount = '{0}'.format(amount).rstrip('0').rstrip('.')
         total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
         title = '{0} {1} = {2} {3}'.format(amount, base, total, cur)
 
