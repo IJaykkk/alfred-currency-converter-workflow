@@ -31,7 +31,7 @@ def main(wf):
     for cur in cur_types:
         if base == cur and len(cur_types) > 1: continue
 
-        total = amount * rate[cur] / rate[base]
+        total = float(amount) * rate[cur] / rate[base]
 
         amount = '{0}'.format(amount).rstrip('0').rstrip('.')
         total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
