@@ -14,7 +14,10 @@ def main(wf):
     renew_rate()
 
     try:
-        base = args[0].upper()
+        if args[0] == 'to':
+            return
+        else:
+            base = args[0].upper()
     except:
         return wait(m="cur [currency type] [amount]")
 
