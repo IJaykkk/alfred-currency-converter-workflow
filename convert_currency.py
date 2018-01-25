@@ -13,14 +13,16 @@ def main(wf):
     # renew currency exchange rate
     renew_rate()
 
+    # parse the first arg
     try:
-        if args[0] == 'to':
+        if args[0] == 'add' or args[0] == 'del':
             return
         else:
             base = args[0].upper()
     except:
         return wait(m="cur [currency type] [amount]")
 
+    # parse the second arg
     try:
         if base in wf.settings['defaults']['rate']:
             amount = float(args[1])
@@ -31,20 +33,28 @@ def main(wf):
 
     cur_types, rate = wf.settings['defaults']['cur_types'], wf.settings['defaults']['rate']
 
-    # produce results
     amount = '{0}'.format(amount).rstrip('0').rstrip('.')
 
+    # produce items
     for cur in cur_types:
         if base == cur and len(cur_types) > 1: continue
 
-        total = float(amount) * rate[cur] / rate[base]
+        ratio = rate[cur] / rate[base]
+        ratio = '{0:.4f}'.format(ratio).rstrip('0').rstrip('.')
+
+        total = float(amount) * float(ratio)
         total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
-        title = '{0} {1} = {2} {3}'.format(amount, base, total, cur)
+
+        title = '{0} {1}'.format(total, cur)
+        subtitle = '{0} : {1} = 1.0 : {2}'.format(base, cur, ratio)
+        icon = './assets/flags/{0}.png'.format(cur)
 
         wf.add_item(title=title,
                 valid=True,
-                subtitle='Press enter to copy to clipboard',
-                copytext=total, arg=total)
+                subtitle=subtitle,
+                copytext=total,
+                arg=total,
+                icon=icon)
 
     wf.send_feedback()
 
