@@ -9,8 +9,14 @@ Change the original currency type into other curreny types.
 
 -![inline](./assets/example.gif)
 
-- ```cur to [curreny type]```
+- ```cur add [curreny type]```
 
 Add a currency type into the list of currency exchange, which will show up in the result. If the number of items in the result exceed 6, the oldest currency type will pop out.
 
 -![inline](./assets/example2.gif)
+
+- ```cur del [curreny type]```
+
+Delete a currency type from the list of currency exchange.
+
+-![inline](./assets/example3.gif)
