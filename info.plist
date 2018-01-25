@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>com.ericlee.currency_converter</string>
 	<key>category</key>
-	<string>Productivity</string>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>14EA696E-9FE5-450D-B41E-8A659DAC826E</key>
@@ -75,9 +75,9 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string></string>
+	<string>Eric Lee</string>
 	<key>description</key>
-	<string>Calculate live currency and foreign exchange rates based on NTD</string>
+	<string>Currency converter with live exchange rate</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -203,7 +203,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>cur to [currency type]</string>
+				<string>cur add [currency type]</string>
 				<key>title</key>
 				<string>Add a currency type</string>
 				<key>type</key>
@@ -236,27 +236,6 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>30FAA640-C8B2-4A58-A664-B46CB532690F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>9E14CCC0-9BDC-4565-BB71-A8ACD87F566B</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -310,6 +289,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9E14CCC0-9BDC-4565-BB71-A8ACD87F566B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -332,11 +332,13 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Alfred's Script Filter object is extremely powerful, and gives you control over the results displayed in Alfred.
+	<string>Currency converter with live exchange rate (v1.0)
 
-Alfred 3 now supports JSON, which is the recommended format. XML is also supported for legacy Alfred 2 workflows, and has been updated to include the new features.
+Features:
 
-A new option now exists for Script Filters, "Alfred filters results". This allows you to return a whole list of results, let Alfred do the subsequent filtering with extreme performance. When this option is selected, your script will be called once with no argument.</string>
+1. Support managing frequently used currency type
+2. Support 100+ currency types
+    </string>
 	<key>uidata</key>
 	<dict>
 		<key>14EA696E-9FE5-450D-B41E-8A659DAC826E</key>
@@ -399,6 +401,6 @@ A new option now exists for Script Filters, "Alfred filters results". This allow
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>
-	<string>https://www.alfredapp.com</string>
+	<string>https://github.com/Ericlee0210/alfred-currency-converter-workflow</string>
 </dict>
 </plist>
