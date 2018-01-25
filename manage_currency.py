@@ -22,9 +22,10 @@ def main(wf):
     title = '{0} {1} {2} the list'.format(op.capitalize(), cur, pos)
     subtitle = 'Press enter to proceed'
     arg = '{0} {1}'.format(op, cur)
+    icon = './assets/flags/{0}.png'.format(cur)
 
     # produce an item
-    wf.add_item(title=title, subtitle=subtitle, arg=arg, valid=True)
+    wf.add_item(title=title, subtitle=subtitle, icon=icon, arg=arg, valid=True)
     wf.send_feedback()
 
 def wait(m):
