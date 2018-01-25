@@ -18,7 +18,7 @@ def main(wf):
         if args[0] == 'add' or args[0] == 'del':
             return
         else:
-            base = args[0].upper()
+            base = args[0]
     except:
         return wait(m="cur [currency type] [amount]")
 
@@ -45,8 +45,8 @@ def main(wf):
         total = float(amount) * float(ratio)
         total = '{0:.4f}'.format(total).rstrip('0').rstrip('.')
 
-        title = '{0} {1}'.format(total, cur)
-        subtitle = '{0} : {1} = 1.0 : {2}'.format(base, cur, ratio)
+        title = '{0} {1}'.format(total, cur.upper())
+        subtitle = '{0} : {1} = 1.0 : {2}'.format(base.upper(), cur.upper(), ratio)
         icon = './assets/flags/{0}.png'.format(cur)
 
         wf.add_item(title=title, subtitle=subtitle, copytext=total, arg=total, icon=icon, valid=True)
@@ -56,7 +56,7 @@ def main(wf):
 def set_defaults():
     if not 'defaults' in wf.settings:
         wf.settings['defaults'] = {
-                'cur_types': ['TWD'],
+                'cur_types': ['twd'],
                 'rate': get_rate(),
                 'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             }
@@ -89,8 +89,7 @@ def get_rate():
     data = json.loads(resp)
 
     # clear up data
-    rate = {k: v['Exrate'] for k, v in data.items()}
-    rate = {re.sub('^USD', '', k): v for k, v in rate.items() if k != "USD"}
+    rate = {re.sub('USD(?<!USD$)', '', k).lower(): v['Exrate'] for k, v in data.items()}
 
     return rate
 

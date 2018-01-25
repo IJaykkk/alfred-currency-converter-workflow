@@ -23,9 +23,13 @@ def main(wf):
     wf.settings.save()
 
     if op == 'add':
-        print('{0} has been added to the list'.format(cur))
+        v = 'added'
+        pos = 'to'
     else:
-        print('{0} has been deleted from the list'.format(cur))
+        v = 'deleted'
+        pos = 'from'
+
+    print('{0} has been {1} {2} the list'.format(cur.upper(), v, pos))
 
 if __name__ == '__main__':
     wf = Workflow()

@@ -10,22 +10,20 @@ def main(wf):
 
     if op == 'add':
         try:
-            cur = args[1]
+            cur = args[1].lower()
         except:
             return wait(m="Please give a valid currency type")
 
-        if is_valid_cur(cur):
-            cur = cur.upper()
-        else:
+        if not is_valid_cur(cur):
             return wait(m="{0} isn't a valid currency type".format(cur))
 
     iterator = [cur] if op == 'add' else wf.settings['defaults']['cur_types']
 
     for c in iterator:
-        title = '{0} {1}'.format(op.capitalize(), c)
+        title = '{0} {1}'.format(op.capitalize(), c.upper())
         subtitle = 'Press enter to proceed'
         arg = '{0} {1}'.format(op, c)
-        icon = './assets/flags/{0}.png'.format(c.lower())
+        icon = './assets/flags/{0}.png'.format(c)
 
         wf.add_item(title=title, subtitle=subtitle, icon=icon, arg=arg, valid=True)
 
@@ -36,7 +34,7 @@ def wait(m):
     wf.send_feedback()
 
 def is_valid_cur(cur):
-    return cur.upper() in wf.settings['defaults']['rate']
+    return cur in wf.settings['defaults']['rate']
 
 if __name__ == '__main__':
     wf = Workflow()
