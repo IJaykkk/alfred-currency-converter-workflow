@@ -1,31 +1,34 @@
 import sys
+import os
 from workflow import Workflow
 
 def main(wf):
     args = wf.args
 
     # parse the first arg
-    try:
-        cur = args[0]
-    except:
-        return wait(m="Please give a valid currency type")
+    op = args[0]
 
-    op = args[1]
+    if op == 'add':
+        try:
+            cur = args[1]
+        except:
+            return wait(m="Please give a valid currency type")
 
-    # check if the currency type is valid
-    if is_valid_cur(cur):
-        cur = cur.upper()
-    else:
-        return wait(m="{0} isn't a valid currency type".format(cur))
+        if is_valid_cur(cur):
+            cur = cur.upper()
+        else:
+            return wait(m="{0} isn't a valid currency type".format(cur))
 
-    pos = 'to' if op == 'add' else 'from'
-    title = '{0} {1} {2} the list'.format(op.capitalize(), cur, pos)
-    subtitle = 'Press enter to proceed'
-    arg = '{0} {1}'.format(op, cur)
-    icon = './assets/flags/{0}.png'.format(cur)
+    iterator = [cur] if op == 'add' else wf.settings['defaults']['cur_types']
 
-    # produce an item
-    wf.add_item(title=title, subtitle=subtitle, icon=icon, arg=arg, valid=True)
+    for c in iterator:
+        title = '{0} {1}'.format(op.capitalize(), c)
+        subtitle = 'Press enter to proceed'
+        arg = '{0} {1}'.format(op, c)
+        icon = './assets/flags/{0}.png'.format(c.lower())
+
+        wf.add_item(title=title, subtitle=subtitle, icon=icon, arg=arg, valid=True)
+
     wf.send_feedback()
 
 def wait(m):
