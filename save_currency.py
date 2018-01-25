@@ -17,7 +17,10 @@ def main(wf):
     except:
         pass
 
-    if op == 'add': dq.appendleft(cur)
+    if op == 'add':
+        dq.appendleft(cur)
+    else:
+        if len(dq) == 0: dq.appendleft('twd')
 
     wf.settings['defaults']['cur_types'] = list(dq)
     wf.settings.save()
