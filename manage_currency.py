@@ -18,17 +18,13 @@ def main(wf):
     else:
         return wait(m="{0} isn't a valid currency type".format(cur))
 
-    if op == 'add':
-        title = '{0} {1} to the list'.format(op.capitalize(), cur)
-    else:
-        title = '{0} {1} from the list'.format(op.capitalize(), cur)
+    pos = 'to' if op == 'add' else 'from'
+    title = '{0} {1} {2} the list'.format(op.capitalize(), cur, pos)
+    subtitle = 'Press enter to proceed'
+    arg = '{0} {1}'.format(op, cur)
 
     # produce an item
-    wf.add_item(
-            title=title,
-            valid=True,
-            subtitle='Press enter to proceed',
-            arg='{0} {1}'.format(op, cur))
+    wf.add_item(title=title, subtitle=subtitle, arg=arg, valid=True)
     wf.send_feedback()
 
 def wait(m):

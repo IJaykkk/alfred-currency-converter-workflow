@@ -49,12 +49,7 @@ def main(wf):
         subtitle = '{0} : {1} = 1.0 : {2}'.format(base, cur, ratio)
         icon = './assets/flags/{0}.png'.format(cur)
 
-        wf.add_item(title=title,
-                valid=True,
-                subtitle=subtitle,
-                copytext=total,
-                arg=total,
-                icon=icon)
+        wf.add_item(title=title, subtitle=subtitle, copytext=total, arg=total, icon=icon, valid=True)
 
     wf.send_feedback()
 
@@ -80,7 +75,7 @@ def renew_rate():
     return
 
 def wait(m):
-    wf.add_item(title=m)
+    wf.add_item(title='Currency exchange', subtitle=m)
     wf.send_feedback()
 
 def get_rate():
