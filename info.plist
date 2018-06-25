@@ -127,15 +127,15 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>/usr/bin/python convert_currency.py $@</string>
+				<string>/usr/bin/python convert.py $@</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>cur [currency type] [amount]</string>
+				<string>cur [currency] [amount]</string>
 				<key>title</key>
-				<string>Currency exchange</string>
+				<string>To Convert a Currency</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -156,7 +156,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/bin/python save_currency.py {query}</string>
+				<string>/usr/bin/python change.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -197,15 +197,15 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>/usr/bin/python manage_currency.py "add" $@ </string>
+				<string>/usr/bin/python edit.py "add" $@ </string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>cur add [currency type]</string>
+				<string>cur add [currency]</string>
 				<key>title</key>
-				<string>Add a currency type</string>
+				<string>To Add a Currency</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -265,15 +265,15 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>/usr/bin/python manage_currency.py "del" $@ </string>
+				<string>/usr/bin/python edit.py "del" $@ </string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>cur del [currency type]</string>
+				<string>cur del</string>
 				<key>title</key>
-				<string>Delete a currency type</string>
+				<string>To Delete a Currency</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -315,7 +315,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/bin/python save_currency.py {query}</string>
+				<string>/usr/bin/python change.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -332,13 +332,14 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Currency converter with live exchange rate (v1.0)
+	<string>Currency converter with live exchange rate (v1.1)
+
+Version 1.1:
+1. Print suggested items for adding/deleting currency
 
 Features:
-
 1. Support managing frequently used currency type
-2. Support 100+ currency types
-    </string>
+2. Support 100+ currency types</string>
 	<key>uidata</key>
 	<dict>
 		<key>14EA696E-9FE5-450D-B41E-8A659DAC826E</key>
@@ -399,7 +400,7 @@ Features:
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/Ericlee0210/alfred-currency-converter-workflow</string>
 </dict>
