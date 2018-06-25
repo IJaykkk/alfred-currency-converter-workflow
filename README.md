@@ -3,7 +3,7 @@ This workflow allows you to easily convert a currency with live currency rate. T
 
 ## Installation
 
-Go to here, download and extract the workflow. Move the workflow into the Alfred 3.
+Go to [here](https://github.com/IJaykkk/alfred-currency-converter-workflow/releases), download and extract the workflow. Move the workflow into the Alfred 3.
 
 ## Commands
 
