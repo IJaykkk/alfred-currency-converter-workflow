@@ -1,25 +1,39 @@
 # Currency exchange workflow for [Alfred 3](https://www.alfredapp.com)
-This workflow allows you easy to convert currency with live currency rate. They keyword is "cur", which is the abbreviation for "Currency". An example of use: ```cur usd 100```
+This workflow allows you to easily convert a currency with live currency rate. They keyword is `cur`, which is the abbreviation for "Currency". An example of use: ```cur usd 100```
 
 ## Installation
-Go to [here](https://github.com/Ericlee0210/alfred-currency-converter-workflow/releases), download and extract the workflow. Move the workflow into the Alfred 3.
+
+Go to here, download and extract the workflow. Move the workflow into the Alfred 3.
 
 ## Commands
 
-- ```cur [currency type] [amount]```
+1. To Convert a Currency
+```
+cur [currency] [amount]
+```
 
-Change the original currency type into other curreny types.
+To convert the currency into other currencies, which are your commonly used ones.
 
--![inline](./assets/example.gif)
+-![inline](./assets/converting.gif)
 
-- ```cur add [curreny type]```
 
-Add a currency type into the list of currency exchange, which will show up in the result. If the number of items in the result exceed 6, the oldest currency type will pop out.
+2. To Add a Currency
+```
+cur add [currency]
+```
 
--![inline](./assets/example2.gif)
+To add a currency as your commonly used one, which will show up in the search results whenever you try to convert other currency. The max number of commonly used currencies is 6. If you keep adding currencies, the oldest currency you added will be popped out from the list.
 
-- ```cur del [curreny type]```
+If you forget how to spell the abbreviation of a currency, don't worry. Just enter whatever you can recall, the workflow will help you find the similar currencies by promting suggestions.
 
-Delete a currency type from the list of currency exchange.
+-![inline](./assets/adding.gif)
 
--![inline](./assets/example3.gif)
+
+3. To Delete a Currency
+```
+cur del
+```
+
+To delete a currency from your list of commonly used currencies.
+
+-![inline](./assets/deleting.gif)
