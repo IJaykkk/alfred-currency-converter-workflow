@@ -162,6 +162,7 @@ class Converter(Setting):
         super(Converter, self).__init__(wf)
 
         if 'defaults' not in self.wf.settings:
+            self.wf.settings['defaults'] = {}
             self.wf.settings['defaults']['curs'] = ['twd']
             self.wf.settings.save()
 
